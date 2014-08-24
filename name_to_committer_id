@@ -1,0 +1,7 @@
+#!/bin/bash
+
+TIKA_CMD="/usr/local/tika/tika-app-1.6-SNAPSHOT.jar"
+PEOPLE_URL="http://people.apache.org/committer-index.html"
+NAME="$1"
+
+java -jar $TIKA_CMD "$PEOPLE_URL" | grep "$NAME" | cut -d/ -f2 | cut -d">" -f2 | cut -d"<" -f1
