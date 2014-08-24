@@ -15,18 +15,17 @@
 # limitations under the License.
 # 
 
-export MONTHS="March April May June July August September October November December January February March April"
-export TIKA_CMD="/usr/local/tika/tika-app-1.3.jar"
+export MONTHS="January February March April May June July August September October November December"
+export TIKA_CMD="/usr/local/tika/tika-app-1.6-SNAPSHOT.jar"
+export YEARS="2012 2013 2014"
 
 for month in $MONTHS; 
  do 
-   if [ "$month" == "March" ] || [ "$month" == "April" ]; then
-      year=2012 
-      java -jar $TIKA_CMD -t "http://wiki.apache.org/incubator/$month$year" | grep 'Signed off by mentor'
-      year=2013
-      java -jar $TIKA_CMD -t "http://wiki.apache.org/incubator/$month$year" | grep 'Signed off by mentor'
-   else
-      year=2012
-      java -jar $TIKA_CMD -t "http://wiki.apache.org/incubator/$month$year" | grep 'Signed off by mentor'
-   fi
+    for year in $YEARS;
+     do
+        url="http://wiki.apache.org/incubator/$month$year"
+        if curl --output /dev/null --silent --head --fail "$url"; then
+	    java -jar $TIKA_CMD -t "$url" | sniff_mentor.py
+	fi
+    done
 done
