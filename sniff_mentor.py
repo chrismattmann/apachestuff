@@ -20,7 +20,7 @@ import sys
 from subprocess import Popen, PIPE
 
 signed_pattern = re.compile(".*Signed off by mentor:(.*)")
-mentor_tick_pattern = re.compile(".*\[X{0,1}\s*\]\s*\([A-Za-z]+\)(.*)")
+mentor_tick_pattern = re.compile(".*\[[Xx]{1}\s*\]\s*\([A-Za-z]+\)(.*)")
 mentorMap = {}
 
 for line in sys.stdin.readlines():
@@ -47,20 +47,20 @@ for line in sys.stdin.readlines():
         m = m.strip()
         if not m in mentorMap:
             if " " in m:
-                process = Popen(["./name_to_committer_id", m], stdout=PIPE)
+                process = Popen(["./name_to_committer_id.py", m], stdout=PIPE)
                 (output, err) = process.communicate()
                 exit_code = process.wait()
                 if output <> None and output.strip() <> "":
                     mentorId = output.strip()
                 else:
                     # one last try, search by last name
-                    process2 = Popen(["./name_to_committer_id", m.split(" ")[1]], stdout=PIPE)
+                    process2 = Popen(["./name_to_committer_id.py", m.split(" ")[1]], stdout=PIPE)
                     (output2, err2) = process2.communicate()
                     exit_code2 = process2.wait()
                     if output2 <> None and output2.strip() <> "":
                         mentorId = output2.strip()
             else:
-                mentorId = m
+                mentorId = m.lower()
         else:
             mentorId = mentorMap[m]
         
