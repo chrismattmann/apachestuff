@@ -18,43 +18,66 @@
 import re
 import urllib2
 import sys
+import unicodedata
+import string
 
 people_url = "http://people.apache.org/committer-index.html"
-name = sys.argv[1]
+name = unicode(sys.argv[1], "utf-8")
 name_toks = name.split(" ")
 namePattern = ""
 selectMentorIdPattern = ".*id\=\'([a-z0-9]+)\'.*"
 selectMentorIdCompiled = re.compile(selectMentorIdPattern)
 
+# source:
+# http://stackoverflow.com/questions/20729827/compare-2-strings-without-considering-accents-in-python
+def remove_accents(data):
+    return ''.join(x for x in unicodedata.normalize('NFKD', data) if x in string.ascii_letters).lower()
+
 if " " not in name:
-    namePattern = ".*\>"+name.lower()+"\<.*"
+    namePattern = ".*\>"+remove_accents(name.lower())+"\<.*"
 else:
-    name_toks = name.split(" ")
+    name_toks = re.split('\s+|\-',name)
     namePattern = ".*\>"
     for tok in name_toks:
         if len(tok) == 1 and len(name_toks) == 3:
-            namePattern = namePattern+"("+tok.lower()+")*\s*[A-Za-z.]*\s*"
+            namePattern = namePattern+"("+remove_accents(tok.lower())+")*\s*[A-Za-z.\-]*\s*"
         else:
             # total hack
+            replaced=False
             if tok == "Dave":
-                tok = "David"
+                tok = u"(David|Dave)"
+                replaced=True
             elif tok == "Matt":
-                tok = "Matthew"
+                tok = u"(Matthew|Matt)"
+                replaced=True
             elif tok == "Tom":
-                tok = "Thomas"
+                tok = u"(Tom|Thomas)"
+                replaced=True
             elif tok == "Henri":
-                tok = "Gomez"
+                tok = u"(Gomez|Henri)"
+                replaced=True
             elif tok == "Gomez":
-                tok = "Henri"
+                tok = u"(Henri|Gomez)"
+                replaced=True
+            elif tok == "Mike":
+                tok = u"(Mike|Michael)"
+                replaced=True
+            elif tok == "Fromm":
+                continue # skip due to Isabel still being listen under maiden name
 
-            namePattern = namePattern+tok.lower()+"\s*[A-Za-z.]*\s*"
+            if replaced:
+                namePattern = namePattern+tok.lower()+"\s*[A-Za-z.\-]*\s*"
+            else:
+                namePattern = namePattern+remove_accents(tok.lower())+"\s*[A-Za-z.\-]*\s*"
     namePattern = namePattern + ".*\<"
 
 namePatternCompiled = re.compile(namePattern)
 prevLine = ""
 theMatch=""
 for line in urllib2.urlopen(people_url).readlines():
-    if namePatternCompiled.match(line.lower()) and prevLine <> None and prevLine.find("<tr>") == -1:
+    if "baptiste" in line:
+        print line
+    if namePatternCompiled.match(unicode(line.lower(), "utf-8")) and prevLine <> None and prevLine.find("<tr>") == -1:
         mentorIdMatch = selectMentorIdCompiled.match(prevLine)
         theMatch = mentorIdMatch.group(1).strip().lower()
 

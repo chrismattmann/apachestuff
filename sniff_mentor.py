@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # 
+# Example use:
+#     tika -t "http://wiki.apache.org/incubator/January2012" | ./sniff_mentor.py -t
 
 import re
 import sys
@@ -52,10 +54,10 @@ def main(argv=None):
           opts, args = getopt.getopt(argv[1:],'hvt',['help', 'verbose','notick'])
        except getopt.error, msg:
          raise _Usage(msg)    
-     
-       signed_pattern = re.compile(".*Signed off by mentor:(.*)")
-       mentor_tick_pattern = re.compile(".*\[[Xx]{1}\s*\]\s*\([A-Za-z]+\)(.*)")
-       mentorMap = {}
+
+
+       mentor_tick_pattern_str = ".*\[[Xx]{1}\s*\]\s*\([A-Za-z]+\)(.*)"
+       noTick=False
 
        for option, value in opts:
           if option in ('-h', '--help'):
@@ -64,15 +66,23 @@ def main(argv=None):
              global _verbose
              _verbose = True
           elif option in ('-t', '--notick'):
-             mentor_tick_pattern = re.compile(".*\[[Xx]{0}\s*\]\s*\([A-Za-z]+\)(.*)")
-              
+             mentor_tick_pattern_str = ".*\[[Xx]{0}\s*\]\s*\([A-Za-z]+\)(.*)"
+             noTick=True
+     
+       signed_pattern_str = "^Signed off by mentor:(.*)"
+       signed_pattern = re.compile(signed_pattern_str)
+       mentor_tick_pattern = re.compile(mentor_tick_pattern_str)
+       verboseLog("Signed Pattern: "+signed_pattern_str)
+       verboseLog("Mentor Tick Pattern: "+mentor_tick_pattern_str)
+       mentorMap = {}
+
        for line in sys.stdin.readlines():
            spMatch = signed_pattern.match(line)
            mtMatch = mentor_tick_pattern.match(line)
            mentors = []
            mentor = ""
 
-           if spMatch:
+           if spMatch and not noTick:
                mentor = spMatch.group(1).strip()
            elif mtMatch:
                mentor = mtMatch.group(1).strip()
