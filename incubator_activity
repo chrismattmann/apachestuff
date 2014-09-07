@@ -25,7 +25,7 @@ for month in $MONTHS;
      do
         url="http://wiki.apache.org/incubator/$month$year"
         if curl --output /dev/null --silent --head --fail "$url"; then
-	    java -jar $TIKA_CMD -t "$url" | sniff_mentor.py
+	    java -jar $TIKA_CMD -t "$url" | sniff_mentor.py -t
 	fi
     done
 done

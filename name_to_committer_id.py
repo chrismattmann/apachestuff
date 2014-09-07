@@ -37,11 +37,11 @@ else:
         else:
             # total hack
             if tok == "Dave":
-                tok = "Dav[e]{0,1}[i]{0,1}[d]{0,1}"
+                tok = "David"
             elif tok == "Matt":
-                tok = "Matt[h]{0,1}[e]{0,1}[w]{0,1}"
+                tok = "Matthew"
             elif tok == "Tom":
-                tok = "(Thomas)*(Tom)*"
+                tok = "Thomas"
             elif tok == "Henri":
                 tok = "Gomez"
             elif tok == "Gomez":

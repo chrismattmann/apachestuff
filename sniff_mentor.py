@@ -104,8 +104,8 @@ def main(argv=None):
                                mentorId = output2.strip()
                            else:
                                mentorId = m.lower()
-                   else:
-                       mentorId = mentorMap[m]
+               else:
+                   mentorId = mentorMap[m]
         
                if mentorId <> None:
                    mentorMap[m] = mentorId
