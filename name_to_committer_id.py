@@ -75,8 +75,6 @@ namePatternCompiled = re.compile(namePattern)
 prevLine = ""
 theMatch=""
 for line in urllib2.urlopen(people_url).readlines():
-    if "baptiste" in line:
-        print line
     if namePatternCompiled.match(unicode(line.lower(), "utf-8")) and prevLine <> None and prevLine.find("<tr>") == -1:
         mentorIdMatch = selectMentorIdCompiled.match(prevLine)
         theMatch = mentorIdMatch.group(1).strip().lower()
