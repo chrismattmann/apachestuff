@@ -13,11 +13,11 @@
   10 akarasulu
    9 jim
    9 cdouglas
-   8 tomwhite
    8 tdunning
    8 hashutosh
    8 benh
    8 asavu
+   7 tomwhite
    7 mahadev
    7 jukka
    6 struberg
@@ -59,7 +59,6 @@
    3 clr
    2 tomaz
    2 thorsten
-   2 muraus
    2 mriou
    2 larsh
    2 jghoman
@@ -71,16 +70,15 @@
    2 berndf
    2 ate
    2 arvind
+   1 white
    1 vinodkv
    1 todd
+   1 thomas
    1 nandana
    1 lewismc
    1 jfarrell
    1 hsaputra
    1 fchrist
    1 dennisl
-   1 chris
    1 azeez
    1 apurtell
-   1 afkham
-   1 a.

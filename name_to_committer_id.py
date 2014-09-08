@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# encoding: utf-8
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
 # this work for additional information regarding copyright ownership.
@@ -38,8 +39,9 @@ if " " not in name:
 else:
     name_toks = re.split('\s+|\-',name)
     namePattern = ".*\>"
+
     for tok in name_toks:
-        if len(tok) == 1 and len(name_toks) == 3:
+        if (len(tok) == 1 or len(tok) == 2 and "." in tok) and len(name_toks) == 3:
             namePattern = namePattern+"("+remove_accents(tok.lower())+")*\s*[A-Za-z.\-]*\s*"
         else:
             # total hack
@@ -68,6 +70,12 @@ else:
                 replaced=True # hack so this doesn't get accents removed
             elif tok == "Pietro":
                 continue # skip due to not being included by his last name.
+            elif tok == "Tomaz":
+                tok = u"(Tomaž|Tomaz)"      
+                replaced=True
+            elif tok == "Afkham":
+                tok = u"(Mohamed Afkham)"
+                replaced=True
 
             if replaced:
                 namePattern = namePattern+tok.lower()+"\s*[A-Za-z.\-]*\s*"

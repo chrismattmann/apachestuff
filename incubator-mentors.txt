@@ -167,7 +167,7 @@ henning
 jbonofre
 mnour
 olamy
-tomaz muraus
+tomaz
 carlos
 snoopdave
 clr
@@ -191,7 +191,7 @@ pramirez
 ahart
 tomdz
 rvs
-afkham azeez
+azeez
 mpierce
 mnour
 mattmann
@@ -379,7 +379,7 @@ tomwhite
 henning
 jbonofre
 mnour
-tomaz muraus
+tomaz
 smarru
 carlos
 nandana
@@ -414,7 +414,7 @@ ddas
 mattmann
 cdouglas
 niq
-chris a. mattmann
+mattmann
 jukka
 asavory
 jzb
@@ -447,7 +447,7 @@ asavory
 jzb
 ke4qqq
 olamy
-tomwhite
+thomas white
 craigmcc
 mattmann
 omalley
