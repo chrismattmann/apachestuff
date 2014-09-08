@@ -1,10 +1,6 @@
-is for mentor(s) to show that the report has been reviewed.
-olamy
-twilliams
-gates
 benh
 mattmann
-jean-baptiste onofré
+jbonofre
 struberg
 marrs
 pauls
@@ -32,15 +28,13 @@ mnour
 nslater
 vkaggal
 acmurthy
-tom white
+tomwhite
 asavu
 antelder
 jochen
 sanjiva
-radu preotiuc-pietro
+radup
 jim
-is for mentor(s) to show that the report has been reviewed.
-dennisl
 cutting
 hashutosh
 tdunning
@@ -60,12 +54,9 @@ acmurthy
 asavu
 snoopdave
 lresende
-adc - alan cabrera
-ralph goers (rgoers)
-alan gates (gates)
 rgardler
 gstein
-jean-baptiste onofré
+jbonofre
 olamy
 hashutosh
 kevan
@@ -93,7 +84,6 @@ benh
 craigmcc
 mattmann
 omalley
-ddas
 benh
 mattmann
 hashutosh
@@ -115,8 +105,8 @@ snoopdave
 jim
 lresende
 sanjiva
-radu preotiuc-pietro
-jean-baptiste onofré
+radup
+jbonofre
 olamy
 cutting
 pauls
@@ -129,7 +119,7 @@ jbonofre
 vanto
 struberg
 vinodkv
-jean-baptiste onofré
+jbonofre
 srowen
 omalley
 hsaputra
@@ -141,9 +131,7 @@ omalley
 acmurthy
 asavu
 stevenn
-dashorst
-alan gates (gates@)
-isabel drost-fromm
+isabel
 ddas
 omalley
 srowen
@@ -157,14 +145,12 @@ mattmann
 olamy
 acmurthy
 ddas
-jean-baptiste onofré
+jbonofre
 ddas
 mfranklin
 benh
 mfranklin
 craigmcc
-olamy
-adc
 pauls
 antelder
 berndf
@@ -178,7 +164,7 @@ gates
 omalley
 brianm
 henning
-jean-baptiste onofré
+jbonofre
 mnour
 olamy
 tomaz muraus
@@ -220,15 +206,15 @@ mattmann
 jghoman
 omalley
 sanjiva
-radu preotiuc-pietro
+radup
 jochen
 benh
 mattmann
-matt hogstrom
+hogstrom
 akarasulu
 ke4qqq
 marrs
-jean-baptiste onofré
+jbonofre
 olamy
 asavu
 jim
@@ -262,7 +248,7 @@ lresende
 antelder
 jochen
 sanjiva
-radu preotiuc-pietro
+radup
 thorsten
 acmurthy
 omalley
@@ -283,14 +269,14 @@ mriou
 clr
 omalley
 humbedooh
-jean-baptiste onofré
+jbonofre
 olamy
 cutting
-matt hogstrom
+hogstrom
 akarasulu
 ke4qqq
 marrs
-jean-baptiste onofré
+jbonofre
 olamy
 chipchilders
 asavu
@@ -322,7 +308,7 @@ asavu
 rgardler
 gstein
 jim
-enis söztutar
+enis
 mahadev
 tdunning
 acmurthy
@@ -349,16 +335,16 @@ akarasulu
 gates
 humbedooh
 ddas
-matt hogstrom
+hogstrom
 akarasulu
 ke4qqq
 marrs
-jean-baptiste onofré
+jbonofre
 olamy
 chipchilders
 asavu
 jzb
-isabel drost-fromm
+isabel
 gates
 cdouglas
 ddas
@@ -391,7 +377,7 @@ omalley
 brianm
 tomwhite
 henning
-jean-baptiste onofré
+jbonofre
 mnour
 tomaz muraus
 smarru
@@ -412,7 +398,7 @@ mpierce
 mnour
 nslater
 sanjiva
-radu preotiuc-pietro
+radup
 antelder
 cdouglas
 benh
@@ -446,8 +432,6 @@ gates
 cdouglas
 mattmann
 jghoman
-dave fisher (wave)
-greg reddin (greddin)
 rgardler
 gstein
 mattmann

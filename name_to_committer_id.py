@@ -64,6 +64,10 @@ else:
                 replaced=True
             elif tok == "Fromm":
                 continue # skip due to Isabel still being listen under maiden name
+            elif tok == "O'Malley":
+                replaced=True # hack so this doesn't get accents removed
+            elif tok == "Pietro":
+                continue # skip due to not being included by his last name.
 
             if replaced:
                 namePattern = namePattern+tok.lower()+"\s*[A-Za-z.\-]*\s*"
@@ -77,7 +81,8 @@ theMatch=""
 for line in urllib2.urlopen(people_url).readlines():
     if namePatternCompiled.match(unicode(line.lower(), "utf-8")) and prevLine <> None and prevLine.find("<tr>") == -1:
         mentorIdMatch = selectMentorIdCompiled.match(prevLine)
-        theMatch = mentorIdMatch.group(1).strip().lower()
+        if mentorIdMatch:
+            theMatch = mentorIdMatch.group(1).strip().lower()
 
     prevLine = line.lower()
 
