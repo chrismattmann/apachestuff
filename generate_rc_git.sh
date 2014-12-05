@@ -23,7 +23,7 @@ ARTIFACT_OUT="$(pwd)/$(basename "$3")"
 cd $CUR
 
 cd $REPO_PATH
-PROJECT=$(git remote -v | grep origin | cut -d '/' -f 2- | cut -d '.' -f 1 | uniq)
+PROJECT=$(git remote -v | grep origin | rev | cut -d '/' -f -1 | rev | cut -d ' ' -f 1 | cut -d '.' -f 1 | uniq)
 
 git tag -a $TAG_NAME -m "Tagging $TAG_NAME"
 git push --tags
