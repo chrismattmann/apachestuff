@@ -16,4 +16,4 @@
 # 
 
 ./incubator_activity > incubator-mentors.txt
-./incubator_mentor_activity | sort | uniq -c | sort -r
+./incubator_mentor_activity | uniq -c | sort -r
