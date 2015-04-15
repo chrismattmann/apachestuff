@@ -26,7 +26,7 @@ then
   echo "Usage: `basename $0` <product> <version> <url prefix>"
   exit $E_BADARGS
 else
-  for ext in tar.gz zip tgz; do 
+  for ext in tar.gz zip tgz jar; do 
       url=${URL_PREFIX}/${APACHE_PRODUCT}-${APACHE_VERSION}.${ext}
       if curl --output /dev/null --silent --head --fail "$url"; then
 	  curl -O ${url}
