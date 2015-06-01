@@ -15,7 +15,7 @@
 # limitations under the License.
 # 
 
-for f in $(ls *.tar.gz *.zip 2> /dev/null); do
+for f in $(ls *.tar.gz *.zip *.jar 2> /dev/null); do
   gpg --armor --output $f.asc --detach-sig $f
   openssl md5 $f > $f.md5
   openssl sha1 $f > $f.sha1
