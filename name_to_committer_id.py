@@ -35,10 +35,10 @@ def remove_accents(data):
     return ''.join(x for x in unicodedata.normalize('NFKD', data) if x in string.ascii_letters).lower()
 
 if " " not in name:
-    namePattern = ".*\>"+remove_accents(name.lower())+"\<.*"
+    namePattern = ".*"+remove_accents(name.lower())+"\<.*"
 else:
     name_toks = re.split('\s+|\-',name)
-    namePattern = ".*\>"
+    namePattern = ".*"
 
     for tok in name_toks:
         if (len(tok) == 1 or len(tok) == 2 and "." in tok) and len(name_toks) == 3:
@@ -92,7 +92,8 @@ for line in urllib2.urlopen(people_url).readlines():
         if mentorIdMatch:
             theMatch = mentorIdMatch.group(1).strip().lower()
 
-    prevLine = line.lower()
+    if "id='" in line:
+        prevLine = line.lower()
 
 # take the last match    
 if theMatch <> None and theMatch.strip() <> "":
