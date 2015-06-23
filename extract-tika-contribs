@@ -15,4 +15,7 @@
 # limitations under the License.
 # 
 
-tika "https://issues.apache.org/jira/sr/jira.issueviews:searchrequest-printable/temp/SearchRequest.html?jqlQuery=project+%3D+TIKA+AND+fixVersion+%3D+1.6&tempMax=100" | grep ViewProfile | cut -d">" -f4 | cut -d"<" -f1 | sort | uniq | sed 's/^/\n* /'
+VERSION=$1
+shopt -s expand_aliases 
+source $HOME/.bashrc
+tika "https://issues.apache.org/jira/sr/jira.issueviews:searchrequest-printable/temp/SearchRequest.html?jqlQuery=project+%3D+TIKA+AND+fixVersion+%3D+${VERSION}&tempMax=100" | grep ViewProfile | cut -d">" -f4 | cut -d"<" -f1 | sort | uniq | sed 's/^/* /'
