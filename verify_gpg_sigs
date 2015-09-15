@@ -14,10 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # 
+# ./verify_gpg_sigs [RELEASE_DIRECTORY]
+
+if [ -z "$1" ]; then
+    cd $1
+fi
 
 for file in *.asc
  do 
    echo "Verifying Signature for file $file"
    gpg --verify $file
 done
-
