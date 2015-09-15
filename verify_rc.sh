@@ -9,12 +9,12 @@ echo "------------------"
 echo "  Verifying MD5s  "
 echo "------------------"
 
-./verify_md5_checksums
+./verify_md5_checksums $1
 
 echo 
 echo "------------------------"
 echo "  Verifying Signatures  "
 echo "------------------------"
 
-./verify_gpg_sigs
+./verify_gpg_sigs $1
 
