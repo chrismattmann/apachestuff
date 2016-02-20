@@ -90,5 +90,5 @@ with open(outputFile, 'w') as of:
 
     for issue in ver:
         output = re.sub(r'(?=.*)TIKA\-(\d+)(?=.*)', r'{{{http://issues.apache.org/jira/browse/TIKA-\1}TIKA-\1}}', issue)
-        output = re.sub(r'(?=.*)Github\-(\d+)(?=.*)',r'{{{http://github.com/apache/tika/pulls/\1}Github-\1}}', output, flags=re.I)
+        output = re.sub(r'(?=.*)Github\-(\d+)(?=.*)',r'{{{http://github.com/apache/tika/pull/\1}Github-\1}}', output, flags=re.I)
         of.write("\t * "+output+"\n\n")
