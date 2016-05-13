@@ -21,6 +21,8 @@ if [ -z "$1" ]; then
     cd $1
 fi
 
+cd $1
+
 MD5S="allmd5s.txt"
 VERIFY=""
 if type md5deep &>/dev/null; then
