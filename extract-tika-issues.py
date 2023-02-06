@@ -23,13 +23,13 @@ changesFile = sys.argv[1]
 outputFile = sys.argv[2]
 relVersion = sys.argv[3]
 
-print "File: "+changesFile
+print("File: "+changesFile)
 
 versionChangeLog = {}
 version = None
-with open(changesFile, 'rb') as cf:
+with open(changesFile, mode="r", encoding="utf-8") as cf:
     lines = cf.readlines()
-    print "Total lines: "+str(len(lines))
+    print("Total lines: "+str(len(lines)))
     lineNo = 0
     versionIssues = []
     regex = re.compile(".*\d{1,2}\/\d{1,2}\/\d{4}.*")
@@ -40,12 +40,12 @@ with open(changesFile, 'rb') as cf:
         
         if regex.match(sline):
             if version != None:
-                print "Adding version: "+version+" with "+str(len(versionIssues))+" issues "+str(versionIssues)
+                print("Adding version: "+version+" with "+str(len(versionIssues))+" issues "+str(versionIssues))
                 versionChangeLog[version] = versionIssues
                 versionIssues = []
             
             version = line.rsplit("-")[0].strip()
-            print "Version: "+str(version)
+            print("Version: "+str(version))
             issueTxt = ""
         else:
             if "Release" in line or "notable changes" in line or "----" in line or version == None: 
@@ -78,7 +78,7 @@ with open(changesFile, 'rb') as cf:
     
 # Catch the last version    
 if version != None:
-    print "Adding version: "+version+" with "+str(len(versionIssues))+" issues "+str(versionIssues)
+    print("Adding version: "+version+" with "+str(len(versionIssues))+" issues "+str(versionIssues))
     versionChangeLog[version] = versionIssues
     versionIssues[:] = []
 
